@@ -1,4 +1,7 @@
 function piechart(attr1, attr2){
+        
+  d3.select("#piechart svg").remove();
+
     // set the dimensions and margins of the graph
     var width = 450
     height = 450
@@ -8,7 +11,7 @@ function piechart(attr1, attr2){
     var radius = Math.min(width, height) / 2 - margin
 
     // append the svg object to the div called 'my_dataviz'
-    var svg = d3.select("#piechart")
+    svg = d3.select("#piechart")
     .append("svg")
     .attr("width", width)
     .attr("height", height)

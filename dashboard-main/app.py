@@ -13,7 +13,7 @@ from sklearn.preprocessing import StandardScaler
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": ["http://127.0.0.1:5500"]}})
 
-dataset = "C:/Users/ripatil/Desktop/dashboard-main/dashboard-main/heart_disease_cleaned.csv"
+dataset = "heart_disease_cleaned.csv"
 df_global = pd.read_csv(dataset)
 data_frame = pd.read_csv(dataset, usecols = ["Age","CigsPerDay","Total Cholestrol","Systolic BP","Diastolic BP","BMI","Heart Rate","Glucose", "Current Smoker", "Diabetes", "BP Meds", "Prevalent Hypertension"])
 std_scaler = StandardScaler()
@@ -110,7 +110,21 @@ def getPieChartData():
         print(dict)
         for key, value in dict.items():
             values_json['data'].append({key :value})
-        print(values_json)
+    else:
+        dict = {}
+        dict['Yes'] = 0
+        dict['No'] = 0
+        for i in df.index:
+            if df[vary][i] == 0:
+                continue
+            if df[varx][i] == 'yes':
+                dict['Yes'] += 1
+            else:
+                dict['No'] += 1
+        values_json = {"x_axis": varx, "y_axis": vary, "data":[]}
+        print(dict)
+        for key, value in dict.items():
+            values_json['data'].append({key :value})
     json_data = json.dumps(values_json, default=np_encoder)
     return json_data
 

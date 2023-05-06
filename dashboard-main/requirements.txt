@@ -1,0 +1,11 @@
+flask
+flask_cors
+pandas
+json
+numpy
+sklearn.cluster
+sklearn.preprocessing
+sklearn
+sklearn.manifold
+sklearn.cluster
+sklearn.preprocessing

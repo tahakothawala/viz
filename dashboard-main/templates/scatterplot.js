@@ -1,4 +1,6 @@
 function scatterplot(attr1, attr2, attr3){
+  d3.select("#scatterplot svg").remove();
+
     // set the dimensions and margins of the graph
 var margin = {top: 60, right: 30, bottom: 60, left: 60},
 width = 460 - margin.left - margin.right,

@@ -1,5 +1,4 @@
 function mdsplot() {
-    
     let x_value ; 
     let y_value ;  
     let width = 700;
@@ -84,7 +83,10 @@ function mdsplot() {
                         //mds_var_props.plotPCP(pcp);
 
                         // Add linking code here
-                       // piechart()
+                        piechart("Heart Stroke", pcp[pcp.length-1]);
+                        if(pcp.length >= 2) {
+                            scatterplot(pcp[pcp.length-1], pcp[pcp.length-2], "Heart Stroke")
+                        }
                     });
 
                 mdsPlot.selectAll("text").data(Object.keys(mdsVariable.name)).enter().append("text").style("font-size", "13px").attr("x", function (data) { return x_axis(x_value[data])+11})
