@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <title>Heart Disease Factors Dashboard</title>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="barchart.js"></script>
+    <script src="heatmap.js"></script>
+    <script src="piechart.js"></script>
+    <script src="pcp.js"></script>
+    <script src="mdsplot.js"></script>
+    <script src="index.js"></script>
+    <script src="radarchart.js"></script>
+    <script src="scatterplot.js"></script>
+    <script src="reset.js"></script>
+    <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+    <script src="https://underscorejs.org/underscore.js"></script>
+    <script src="https://d3js.org/d3-zoom.v2.min.js"></script>
+    <style>
+      .axis {
+      opacity: 0.9;
+    }
+    .axis:hover {
+      opacity: 1;
+    }
+    svg {
+      font: 10px sans-serif;
+    }
+    
+    .background path {
+      fill: none;
+      stroke: #ddd;
+      shape-rendering: crispEdges;
+    }
+    
+    .foreground path {
+      fill: none;
+      stroke: steelblue;
+    }
+    
+    .brush .extent {
+      fill-opacity: .3;
+      stroke: #fff;
+      shape-rendering: crispEdges;
+    }
+    
+ 
+.axis line,
+.axis path {
+    fill: none;
+    stroke: rgb(0, 0, 0);
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+    cursor: move;
+}
+
+.axis .axis-label {
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+      .Row {
+        display: table;
+        width: 100%; /*Optional*/
+        table-layout: fixed; /*Optional*/
+    }
+    .Column {
+        display: table-cell;
+        padding-left: 50px;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        margin-left: 50px;
+        margin-right: 10px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    .axis {
+        opacity: 1;
+    }
+    .axis:hover {
+        opacity: 1;
+    }
+    .container {
+  display: flex; /* or inline-flex */
+}
+
+</style>
+</head>
+  
+<body id="bb" onload="index(false)">
+  <div id="root">
+    <div style="display: flex; justify-content: left;">
+      <div class="Column" style="display:inline-block; padding-right: 20px; padding-top: 10px;" id="mds"></div>
+      <div class="Column" style="display:inline-block; width:600px; height:500px" id="heatmap"></div>
+      <div class="Column" style="display:inline-block; width:600px; height:500px" id="scatterplot"></div>
+      <button type="button" onclick="index(true)">Click Me!</button>
+
+    </div>
+    <div style="display: flex; justify-content: left;">
+      <div class="Column" style="display:inline-block; height:500px" id="pcp"></div>
+      <div class="Column" style="display:inline-block; width:500px; height:500px" id="piechart"></div>
+    </div>
+  </div>
+</body>
